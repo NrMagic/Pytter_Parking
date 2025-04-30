@@ -19,10 +19,9 @@
         String cor =resquest.getParameter("cor");
         String pagamento =resquest.getParameter("pagamento");
         String valor =request.getParameter("valor");
-        if (rs.next())
-            
-            String inout=resquest.getParameter("selectinout");
-            
+        LocalDateTime dataAtual=LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        String data = dataAtual.format(formatter);
             
             
         try{
@@ -34,7 +33,16 @@
             String password = "root";
             conecta=DriverManager.getConection(url,user,password);
             
-            String sql ="INSERT INTO tb_veiculos (placa,marca,modelo,cor,data,pagamento,valor) VALUES (?,?,?,?,?,?,?)";
+            // Executar a consulta
+            ResultSet rs = st.executeQuery();
+            
+         if (rs.next()){
+            
+            String inout=resquest.getParameter("selectinout");
+            
+            if("entrada" equals(inout)){
+            
+            String sql ="INSERT INTO tb_veiculos (placa,marca,modelo,cor,data_entrada,pagamento,valor) VALUES (?,?,?,?,?,?,?)";
             st=conecta.prepareStatement(sql);
             st.setString(1,placa);
             st.setString(2,marca);
@@ -43,7 +51,20 @@
             st.setString(5,data);
             
             st.executeUpdate();
-        
+            
+            } else{
+                
+            String sql ="UPDATE tb_veiculos (data_saida,pagamento,valor) VALUES (?,?,?)";
+            st=conecta.prepareStatement(sql);
+            st.setString(1,data);
+            st.setString(2,pagamento);
+            st.setString(3,valor);
+            
+            st.executeUpdate();
+            
+            }
+            }
+            
             }catch (Exception x) {
             String erro = x.getMessage();
             if (erro.contains("Duplicate entry")) {
