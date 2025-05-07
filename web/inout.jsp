@@ -10,35 +10,33 @@
         <title>JSP Page</title>
     </head>
     <body>
+ 
+    <form method="get">
         <div class="line">
             <label for="labelInput" class="labelInput">Entrada/Saida</label>
-        <select name="selectinout">
-            <option value="Entrada" id="entrada" name="entrada">entrada</option>
-            <option value="Saida" id="saida">Saida</option>
+            <select name="selectinout" id="selectinout" autofocus required>
+            <option value="Entrada" id="Entrada" selected>Entrada</option>
+            <option value="Saida" id="Saida" >Saida</option>
         </select>
         <input type="submit" value="Enter" id="submit" class="inputButton">
-        </div>  
+        </div>
+    </form>
         <%  
-            ResultSet rs;
-            
-            if(rs.next()){
-            String inout=request.getParameter("selectinout");
-            
-            if("entrada".equals(inout)){
+            String inout;
+            inout=request.getParameter("selectinout");
+            //out.println("Valor do parâmetro selectinout: " + inout);  // Para verificar o valor do parâmetro
+            if("Entrada".equals(inout)){
                 
             response.sendRedirect("incar.html");
-            } else{
+            }else if("Saida".equals(inout)){
             
             response.sendRedirect("outcar.html");
+            }else{
+            // Se não encontrar o usuário ou senha no banco
+            //out.println("Opção invalida.");
 
             }
-            }else{
-            
-            
-            
-                    // Se não encontrar o usuário ou senha no banco
-                    out.println("Opção invalida.");
-            }
+ 
             %>
     </body>
 </html>
