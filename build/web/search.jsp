@@ -4,6 +4,8 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="java.sql.Timestamp" %>
+<%@page import="java.time.Duration" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,7 +19,8 @@
             Connection cnx = null;
             PreparedStatement st = null;
             ResultSet rs = null;
-            LocalDateTime data_entrada;
+            Timestamp datatamp;
+            int precohora 
             
             // Conexão com o banco de dados
             try {
@@ -49,6 +52,7 @@
                                 <th>Cor</th>
                                 <th>Data/Entrada</th>
                                 <th>Data/Saida</th>
+                                <th>Valor</th>
                             </tr>
                             
                             
@@ -60,12 +64,31 @@
                                 <td><%= rs.getString("modelo") %></td>
                                 <td><%= rs.getString("cor") %></td>
                                 <%
-                                 data_entrada= rs.getString("data_entrada");
+                                 datatamp= rs.getTimestamp("data_entrada");
+                                 LocalDateTime data_entrada=datatamp.toLocalDateTime();
                                  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-                                 String dateIn=data_entrada.format(formatter);
+                                 String datein=data_entrada.format(formatter);
+                                 LocalDateTime data_saida= LocalDateTime.now();
+                                 String dateout=data_saida.format(formatter);
                                 %>
-                                <td><%= dateIn %></td>
+                                <td><%= datein %></td>
+                                <td><%= dateout %></td>
                                 
+                                <%
+                                Duration duracao=Duration.between(data_entrada,data_saida);
+                                out.print(duracao);
+                                int horas=(int) duracao.toHours();
+                                int valor= 0;
+                                if(horas<=1){
+                                    valor=precohora;
+
+                                    }if(horas>1){
+                                    valor=precohora+((horas-1)*adhora);
+                                }else{
+                                        out.print("Valor não encontrado");
+                                        }
+                                    %>
+                                    <td>R$<%= valor %>,00</td>    
                             </tr>
                         </table>
 
