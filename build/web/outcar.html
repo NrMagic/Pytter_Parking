@@ -1,16 +1,21 @@
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Saída</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="src/styles/outcar.css">
     </head>
     <body>
         <form action="search.jsp" method="get">
-            <div class="line">
-            <input type="text" name="placa" id="placa" required>
-            <label for="labelInput" class="labelInput">Placa:</label>
+            <div class="form">
+                <div class="line">
+                    <label for="labelInput" class="labelInput">Placa:</label>
+                    <input type="text" name="placa" id="placa" required>
+                </div>
+                <div class="button">
+                    <input type="submit" name="submit" id="button"  value="Enter">
+                </div>
             </div>
-            <input type="submit" name="submit" id="button"  value="Enter">
         </form>
     </body>
 </html>

@@ -27,18 +27,14 @@
                 <input type="radio" name="gestao" value="usuario">
                 <label>Usuario</label>
             </div> 
-                <input type="submit" id="submit">
+            <input type="submit" id="submit">
         </form>
         <%
             double precohora = 0.0;
             double adhora = 0.0;
             int totalvagas = 0;
-            
-          
-            
-    
-        
-         try {
+
+            try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 String url = "jdbc:mysql://localhost:3306/parking";
                 String user = "root";
@@ -51,12 +47,9 @@
                 totalvagas=Integer.parseInt(request.getParameter("vagas"));
                 String usuario=request.getParameter("User");
                 String senha=request.getParameter("password");
-
             }catch (Exception e) {
                 String erro = e.getMessage();
             }
-        
-        
         %>
     </body>
 </html>
