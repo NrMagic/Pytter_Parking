@@ -8,19 +8,21 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="src/styles/inout.css">
     </head>
     <body>
- 
-    <form method="get">
-        <div class="line">
-            <label for="labelInput" class="labelInput">Entrada/Saida</label>
-            <select name="selectinout" id="selectinout" autofocus required>
-            <option value="Entrada" id="Entrada" selected>Entrada</option>
-            <option value="Saida" id="Saida" >Saida</option>
-        </select>
-        <input type="submit" value="Enter" id="submit" class="inputButton">
-        </div>
-    </form>
+        <form method="get">
+            <div class="line">
+                <label for="labelInput" class="labelInput">Entrada/Saida</label>
+                <select name="selectinout" id="selectinout" autofocus required>
+                    <option value="Entrada" id="Entrada" selected>Entrada</option>
+                    <option value="Saida" id="Saida" >Saida</option>
+                </select>
+            </div>
+            <div class="button">
+                <input type="submit" value="Enter" id="submit" class="inputButton">
+            </div>
+        </form>
         <%  
             String inout;
             inout=request.getParameter("selectinout");
@@ -37,6 +39,6 @@
 
             }
  
-            %>
+        %>
     </body>
 </html>

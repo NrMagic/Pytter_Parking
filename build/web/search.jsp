@@ -44,68 +44,59 @@
                     if (rs.next()) {
                         // Exibe os detalhes do veículo se encontrado
         %>
-                        <table border='1'>
-                            <tr>
-                                <th>Placa</th>
-                                <th>Marca</th>
-                                <th>Modelo</th>
-                                <th>Cor</th>
-                                <th>Data/Entrada</th>
-                                <th>Data/Saida</th>
-                                <th>Valor</th>
-                            </tr>
-                            
-                            
-                            
-                            
-                            <tr>
-                                <td><%= rs.getString("placa") %></td>
-                                <td><%= rs.getString("marca") %></td>
-                                <td><%= rs.getString("modelo") %></td>
-                                <td><%= rs.getString("cor") %></td>
-                                <%
-                                 datatamp= rs.getTimestamp("data_entrada");
-                                 LocalDateTime data_entrada=datatamp.toLocalDateTime();
-                                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-                                 String datein=data_entrada.format(formatter);
-                                 LocalDateTime data_saida= LocalDateTime.now();
-                                 String dateout=data_saida.format(formatter);
-                                %>
-                                <td><%= datein %></td>
-                                <td><%= dateout %></td>
-                                
-                                <%
-                                Duration duracao=Duration.between(data_entrada,data_saida);
-                                out.print(duracao);
-                                int horas=(int) duracao.toHours();
-                                int valor= 0;
-                                if(horas<=1){
-                                    valor=precohora;
-
-                                    }if(horas>1){
-                                    valor=precohora+((horas-1)*adhora);
-                                }else{
-                                        out.print("Valor não encontrado");
-                                        }
-                                    %>
-                                    <td>R$<%= valor %>,00</td>    
-                            </tr>
-                        </table>
-
-                        <div class="line">
-                            <label for="labelInput" class="labelInput">Valor</label>
-                            <input type="number" name="valor" class="valor" id="valor" required>
-                        </div>
-
-                        <div class="line">
-                            <label for="labelInput" class="labelInput">Forma de Pagamento</label>
-                            <select name="selectpag">
-                                <option value="dinheiro" id="dinheiro">Dinheiro</option>
-                                <option value="PIX" id="PIX">PIX</option>
-                                <option value="cartao" id="cartao">Cartão</option>
-                            </select>
-                        </div>
-
+        <table border='1'>
+            <tr>
+                <th>Placa</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Cor</th>
+                <th>Data/Entrada</th>
+                <th>Data/Saida</th>
+                <th>Valor</th>
+            </tr>
+            <tr>
+                <td><%= rs.getString("placa") %></td>
+                <td><%= rs.getString("marca") %></td>
+                <td><%= rs.getString("modelo") %></td>
+                <td><%= rs.getString("cor") %></td>
+                <%
+                        datatamp= rs.getTimestamp("data_entrada");
+                        LocalDateTime data_entrada=datatamp.toLocalDateTime();
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+                        String datein=data_entrada.format(formatter);
+                        LocalDateTime data_saida= LocalDateTime.now();
+                        String dateout=data_saida.format(formatter);
+                %>
+                <td><%= datein %></td>
+                <td><%= dateout %></td> 
+                <%
+                        Duration duracao=Duration.between(data_entrada,data_saida);
+                        out.print(duracao);
+                        int horas=(int) duracao.toHours();
+                        int valor= 0;
+                        if(horas<=1){
+                            valor=precohora;
+                        }else if(horas>1){
+                            valor=precohora+((horas-1)*adhora);
+                        }else{
+                             out.print("Valor não encontrado");
+                        }
+                %>
+                <td>R$<%= valor %>,00</td>    
+            </tr>
+        </table>
+        <div class="line">
+            <label for="labelInput" class="labelInput">Valor</label>
+            <input type="number" name="valor" class="valor" id="valor" required>
+        </div>
+        <div class="line">
+            <label for="labelInput" class="labelInput">Forma de Pagamento</label>
+            <select name="selectpag">
+                <option value="dinheiro" id="dinheiro">Dinheiro</option>
+                <option value="PIX" id="PIX">PIX</option>
+                <option value="cartao" id="cartao">Cartão</option>
+            </select>
+        </div>
         <% 
                     } else {
                         // Se o veículo não for encontrado

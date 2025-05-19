@@ -1,78 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veiculos</title>
-</head>
-<body>
-    <main>
-        <form action="cadcarro.jsp" method="post">
-            <div class="box">
-                <fieldset>
-                    <legend>Veiculos</legend>
-                    <div class="line">
-                        <label for="labelInput" class="labelInput">Placa</label>
-                        <input type="text" name="placa" class="placa" id="placa" required>
-                    </div>
-                    <label for="labelInput">Marca</label>
-                    <select name="marca" id="marca" class="marca">
-                        <option value="volkswagen">Volkswagen</option>
-                        <option value="fiat">Fiat</option>
-                        <option value="chevrolet">Chevrolet</option>
-                        <option value="toyota">Toyota</option>
-                        <option value="hyundai">Hyundai</option>
-                        <option value="jeep">Jeep</option>
-                        <option value="renault">Renault</option>
-                        <option value="honda">Honda</option>
-                        <option value="nissan">Nissan</option>
-                        <option value="peugeot">Peugeot</option>
-                        <option value="caoa-chery">Caoa Chery</option>
-                        <option value="citroen">Citroën</option>
-                        <option value="mitsubishi">Mitsubishi</option>
-                        <option value="ford">Ford</option>
-                        <option value="bmw">BMW</option>
-                        <option value="mercedes">Mercedes-Benz</option>
-                        <option value="audi">Audi</option>
-                        <option value="kia">Kia</option>
-                        <option value="volvo">Volvo</option>
-                        <option value="land-rover">Land Rover</option>
-                        <option value="porsche">Porsche</option>
-                        <option value="iveco">Iveco</option>
-                        <option value="ram">RAM</option>
-                        <option value="suzuki">Suzuki</option>
-                        <option value="jac">JAC Motors</option>
-                        <option value="mini">Mini</option>
-                        <option value="subaru">Subaru</option>
-                        <option value="lexus">Lexus</option>
-                        <option value="jaguar">Jaguar</option>
-                        <option value="byd">BYD</option>
-                        <option value="troller">Troller</option>
-                        <option value="ferrari">Ferrari</option>
-                        <option value="dodge">Dodge</option>
-                        <option value="tesla">Tesla</option>
-                        <option value="lamborghini">Lamborghini</option>
-                        <option value="cadillac">Cadillac</option>
-                        <option value="maserati">Maserati</option>
-                        <option value="aston-martin">Aston Martin</option>
-                        <option value="chrysler">Chrysler</option>
-                        <option value="bentley">Bentley</option>
-                        <option value="haval">Haval</option>
-                        <option value="dongfeng">Dongfeng</option>
-                        <option value="mclaren">McLaren</option>
-                        <option value="rolls-royce">Rolls-Royce</option>
-                      </select>                      
-                      <div class="line">
-                          <label for="labelInput" class="labelInput">Modelo</label>
-                          <input type="text" name="modelo" class="modelo" id="modelo" required>
-                      </div>
-                    <div class="line">
-                        <label for="labelInput" class="labelInput">Cor</label>
-                        <input type="text" name="cor" class="cor" id="cor" required>
-                    <input type="submit" value="Enviar" id="submit" name="submit" class="button">
-                </fieldset>
-            </div>
-        </form>
-    </main>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Veiculos</title>
+        <link rel="stylesheet" href="src/styles/incar.css">
+    </head>
+    <body>
+        <main>
+            <form action="cadcarro.jsp" method="post">
+                <div class="box">
+                    <fieldset>
+                        <legend>Veiculos</legend>
+                        <div class="form">
+                            <div class="line">
+                                <label for="labelInput" class="labelInput">Placa</label>
+                                <input type="text" name="placa" class="placa" id="placa" required>
+                            </div>
+                            <div class="line">
+                                <label for="labelInput">Marca</label>
+                                <select name="marca" id="marca" class="marca">
+                                    <option value="volkswagen">Volkswagen</option>
+                                    <option value="fiat">Fiat</option>
+                                    <option value="chevrolet">Chevrolet</option>
+                                    <option value="toyota">Toyota</option>
+                                    <option value="hyundai">Hyundai</option>
+                                    <option value="jeep">Jeep</option>
+                                    <option value="renault">Renault</option>
+                                    <option value="honda">Honda</option>
+                                    <option value="nissan">Nissan</option>
+                                    <option value="peugeot">Peugeot</option>
+                                    <option value="caoa-chery">Caoa Chery</option>
+                                    <option value="citroen">Citroën</option>
+                                    <option value="mitsubishi">Mitsubishi</option>
+                                    <option value="ford">Ford</option>
+                                    <option value="bmw">BMW</option>
+                                    <option value="mercedes">Mercedes-Benz</option>
+                                    <option value="audi">Audi</option>
+                                    <option value="kia">Kia</option>
+                                    <option value="volvo">Volvo</option>
+                                    <option value="land-rover">Land Rover</option>
+                                    <option value="porsche">Porsche</option>
+                                    <option value="iveco">Iveco</option>
+                                    <option value="ram">RAM</option>
+                                    <option value="suzuki">Suzuki</option>
+                                    <option value="jac">JAC Motors</option>
+                                    <option value="mini">Mini</option>
+                                    <option value="subaru">Subaru</option>
+                                    <option value="lexus">Lexus</option>
+                                    <option value="jaguar">Jaguar</option>
+                                    <option value="byd">BYD</option>
+                                    <option value="troller">Troller</option>
+                                    <option value="ferrari">Ferrari</option>
+                                    <option value="dodge">Dodge</option>
+                                    <option value="tesla">Tesla</option>
+                                    <option value="lamborghini">Lamborghini</option>
+                                    <option value="cadillac">Cadillac</option>
+                                    <option value="maserati">Maserati</option>
+                                    <option value="aston-martin">Aston Martin</option>
+                                    <option value="chrysler">Chrysler</option>
+                                    <option value="bentley">Bentley</option>
+                                    <option value="haval">Haval</option>
+                                    <option value="dongfeng">Dongfeng</option>
+                                    <option value="mclaren">McLaren</option>
+                                    <option value="rolls-royce">Rolls-Royce</option>
+                                </select> 
+                            </div>                     
+                            <div class="line">
+                                <label for="labelInput" class="labelInput">Modelo</label>
+                                <input type="text" name="modelo" class="modelo" id="modelo" required>
+                            </div>
+                            <div class="line">
+                                <label for="labelInput" class="labelInput">Cor</label>
+                                <input type="text" name="cor" class="cor" id="cor" required>
+                            </div>
+                            <div class="button">  
+                                <input type="submit" value="Enviar" id="submit" name="submit">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </form>
+        </main>
+    </body>
 </html>

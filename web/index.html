@@ -1,29 +1,36 @@
 <!DOCTYPE html>
-
 <html>
     <head>
         <title>Login</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="src/styles/style.css">
     </head>
     <body>
-        <Header>
+        <header>
             <div class="group-header">
-                <H1>Pytter Parking</H1>
+                <img src="src/assets/imgs/Logo-Aranha.png" alt="logo - Pytter Parking">
+                <h1>Pytter Parking</h1>
             </div>
-        </Header>
+        </header>
         <main>
             <form method="post" action="login.jsp">
-            <fielderset>
-                <legend>Login</legend>
-                <div class="box">
-                    <input type="text" name="usuario" id="usuario" required>
-                    <label for="labelInput" class="labelInput">Usuario</label>
-                    <input type="password" name="senha" id="senha" required>
-                    <label for="labelInput" class="labelInput">Senha</label>
-                    <input type="submit" id="submit" class="submit" value="Enter" name="">
-                </div>
-            </fielderset>
+                <fielderset>
+                    <legend>Login</legend>
+                    <div class="box">
+                        <div class="user">
+                            <label for="labelInput" class="labelInput">Usuario:</label>
+                            <input type="text" name="usuario" id="usuario" required>
+                        </div>
+                        <div class="password">
+                            <label for="labelInput" class="labelInput">Senha:</label>
+                            <input type="password" name="senha" id="senha" required>
+                        </div>
+                        <div class="button">
+                            <input type="submit" id="submit" class="submit" value="Enter">
+                        </div>
+                    </div>
+                </fielderset>
             </form>
         </main>
     </body>

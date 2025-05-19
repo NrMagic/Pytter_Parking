@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-left: 25px;
+    gap: 25px;
+}
+
+.title{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.link-group{
+    display: flex;
+    padding-top: 10px;
+    padding-left: 15px;
+    gap: 5px;
+}
