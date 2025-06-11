@@ -41,7 +41,7 @@
                         response.sendRedirect("pageAdmin.html");
                     } else {
                         // Se for usuário comum, redirecionar para a página de usuário
-                        response.sendRedirect("pageuser.html");
+                        response.sendRedirect("pageUser.html");
                     }
                 } else {
                     // Se não encontrar o usuário ou senha no banco

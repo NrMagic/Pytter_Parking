@@ -15,7 +15,7 @@ fieldset{
     gap: 10px;
 }
 
-form{
+.form{
     display: flex;
     flex-direction: column;
     gap: 5px;
